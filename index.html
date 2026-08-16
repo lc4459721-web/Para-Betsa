@@ -180,7 +180,7 @@
         <button class="music-btn" onclick="toggleMusic()" id="playBtn">▶ Reproducir Música</button>
         <audio id="bgMusic" loop preload="auto">
             <source src="musica.mp3" type="audio/mpeg">
-            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+            Tu navegador no soporta el reproductor de audio.
         </audio>
     </div>
 
@@ -212,7 +212,7 @@
         <p>No dudes de lo mucho que te amo, día a día te lo demostraré y diré.</p>
         
         <p><strong>Te amo. ❤️</strong></p>    
-        <p>Y nunca quiero que lo doubts.</p>
+        <p>Y nunca quiero que lo dudes.</p>
         
         <p style="text-align: center; margin: 25px 0;">
             <strong>Somos <span class="code-tag">24DCM</span>.</strong>
@@ -239,8 +239,8 @@
                 music.play().then(() => {
                     btn.textContent = '⏸ Pausar Música';
                 }).catch(err => {
-                    console.log("Error al reproducir:", err);
-                    alert("Haz clic de nuevo para habilitar la reproducción de audio.");
+                    console.log("Error al reproducir el archivo local:", err);
+                    alert("El archivo musica.mp3 no se pudo reproducir. Verifica que esté convertido a MP3 real.");
                 });
             } else {
                 music.pause();
