@@ -12,7 +12,6 @@
         }
 
         body {
-            /* Fondo lila suave */
             background-color: #dcd0ff; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333333;
@@ -26,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* Contenedor de corazones flotantes */
         .hearts-container {
             position: fixed;
             top: 0;
@@ -39,7 +37,7 @@
 
         .heart {
             position: absolute;
-            background-color: #ffffff; /* Corazones blancos */
+            background-color: #ffffff;
             display: inline-block;
             width: 18px;
             height: 18px;
@@ -85,28 +83,30 @@
             }
         }
 
-        /* Reproductor de música */
         .music-player {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(5px);
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 30px;
             margin-bottom: 25px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             position: relative;
             z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .music-btn {
             background: #e63946;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 22px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 1rem;
             transition: transform 0.2s, background 0.2s;
         }
 
@@ -115,7 +115,6 @@
             transform: scale(1.05);
         }
 
-        /* Estructura de la carta */
         .content {
             max-width: 600px;
             width: 100%;
@@ -178,13 +177,12 @@
 
     <div class="music-player">
         <span>🎵 Te dedico esta canción:</span>
-        <button class="music-btn" onclick="toggleMusic()" id="playBtn">▶ Reproducir</button>
+        <button class="music-btn" onclick="toggleMusic()" id="playBtn">▶ Reproducir Música</button>
+        <audio id="bgMusic" loop preload="auto">
+            <source src="musica.mp3" type="audio/mpeg">
+            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+        </audio>
     </div>
-
-    <audio id="bgMusic" loop preload="auto">
-        <source src="musica.mp3" type="audio/mpeg">
-        Tu navegador no soporta el reproductor de audio.
-    </audio>
 
     <div class="content">
         <h1>Para ti, mi corazón ❤️</h1>
@@ -214,7 +212,7 @@
         <p>No dudes de lo mucho que te amo, día a día te lo demostraré y diré.</p>
         
         <p><strong>Te amo. ❤️</strong></p>    
-        <p>Y nunca quiero que lo dudes.</p>
+        <p>Y nunca quiero que lo doubts.</p>
         
         <p style="text-align: center; margin: 25px 0;">
             <strong>Somos <span class="code-tag">24DCM</span>.</strong>
@@ -239,13 +237,14 @@
             
             if (music.paused) {
                 music.play().then(() => {
-                    btn.textContent = '⏸ Pausar';
-                }).catch(error => {
-                    console.log("Error al reproducir audio:", error);
+                    btn.textContent = '⏸ Pausar Música';
+                }).catch(err => {
+                    console.log("Error al reproducir:", err);
+                    alert("Haz clic de nuevo para habilitar la reproducción de audio.");
                 });
             } else {
                 music.pause();
-                btn.textContent = '▶ Reproducir';
+                btn.textContent = '▶ Reproducir Música';
             }
         }
 
