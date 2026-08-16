@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, mi corazón ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Fondo lila suave */
+            background-color: #dcd0ff; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Contenedor de corazones flotantes */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            background-color: #ffffff; /* Corazones blancos */
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            opacity: 0;
+            transform: rotate(-45deg);
+            animation: float 7s infinite linear;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+        }
+
+        .heart:before {
+            top: -9px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: 9px;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: rotate(-45deg) translateY(100vh) scale(calc(0.6 * var(--scale, 1)));
+            }
+            15% {
+                opacity: 0.8;
+            }
+            85% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(-45deg) translateY(-100px) scale(calc(1.1 * var(--scale, 1)));
+            }
+        }
+
+        /* Reproductor de música */
+        .music-player {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .music-btn {
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .music-btn:hover {
+            background: #d62828;
+            transform: scale(1.05);
+        }
+
+        /* Estructura de la carta */
+        .content {
+            max-width: 600px;
+            width: 100%;
+            padding: 10px;
+            text-align: left;
+            line-height: 1.8;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #d62828;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+
+        strong {
+            color: #b71c1c;
+        }
+
+        .highlight {
+            background-color: rgba(255, 255, 255, 0.4);
+            padding: 12px 18px;
+            border-left: 4px solid #d62828;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+            color: #b71c1c;
+        }
+
+        .code-tag {
+            display: inline-block;
+            background: #d62828;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="music-player">
+        <span>🎵 Te dedico esta canción:</span>
+        <button class="music-btn" onclick="toggleMusic()" id="playBtn">▶ Reproducir</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <!-- Reemplaza la URL de abajo por el enlace web directo (.mp3) de tu canción -->
+        <source src="https://tuservidor.com/cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el reproductor de audio.
+    </audio>
+
+    <div class="content">
+        <h1>Para ti, mi corazón ❤️</h1>
+        
+        <p><strong>Hola, buenas, buenas Betsa</strong></p>
+        
+        <p>Espero de corazón que te encuentres muy bien. Quiero que sepas que eres una persona increíble, alguien a quien admiro muchísimo y que agradezco haber encontrado en mi vida.</p>
+        
+        <p>La vida tiene días buenos y días malos, pero desde que estás conmigo siento que se ha vuelto un poquito más bonita. <strong>A tu lado me la paso increíble</strong>, incluso en esos días cansados, cuando no tenemos mucho que decir. Porque he aprendido que no siempre hacen falta palabras; a veces simplemente estar juntos hace que todo valga la pena.</p>
+        
+        <p>Quiero demostrártelo con hechos, cuidarte, escucharte y hacerte sentir querida todos los días.</p>
+        
+        <p>Cuando algo te moleste, <strong>dímelo</strong>. Cuando tengas un problema, déjame ayudarte. Sé que eres fuerte y que puedes sola, pero quiero que sepas que conmigo nunca tienes que sentir pena de expresar lo que sientes.</p>
+        
+        <p>Quiero conocer tus gustos, tus sueños, tus pequeñas cosas y todo aquello que te hace ser tú. <strong>Quiero aprender de ti y encontrar siempre una razón para hacerte sonreír, o más bien sacarte una sonrisa.</strong></p>
+        
+        <p><strong>Y me importas de verdad.</strong> Quiero acompañarte en tus días buenos y también en los difíciles. Si algún día las cosas se complican, quiero que podamos decir:</p>
+        
+        <div class="highlight">
+            “No estamos solos, vamos a encontrar la manera, juntos.”
+        </div>
+        
+        <p>No puedo prometerte una vida perfecta, porque sé que tendremos días buenos y días difíciles. Pero sí puedo prometerte que <strong>siempre intentaré elegirte</strong>, cuidarte y luchar por lo nuestro.</p>
+        
+        <p>Porque desde que llegaste, <strong>mi vida se siente más tranquila.</strong></p>
+        
+        <p>No dudes de lo mucho que te amo, día a día te lo demostraré y diré.</p>
+        
+        <p><strong>Te amo. ❤️</strong></p>    
+        <p>Y nunca quiero que lo dudes.</p>
+        
+        <p style="text-align: center; margin: 25px 0;">
+            <strong>Somos <span class="code-tag">24DCM</span>.</strong>
+        </p>
+        
+        <p>Espero que esto sea solamente el comienzo de muchas historias, risas, abrazos, momentos y recuerdos que algún día podamos mirar juntos y decir:</p>
+        
+        <div class="highlight">
+            “Mira todo lo que hemos vivido.”
+        </div>
+        
+        <div class="footer">
+            Con todo mi cariño,<br>
+            <strong>LCB — Alejandro ❤️</strong>
+        </div>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const btn = document.getElementById('playBtn');
+            
+            if (music.paused) {
+                music.play();
+                btn.textContent = '⏸ Pausar';
+            } else {
+                music.pause();
+                btn.textContent = '▶ Reproducir';
+            }
+        }
+
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 35;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                
+                const scale = Math.random() * 0.6 + 0.4;
+                heart.style.setProperty('--scale', scale);
+
+                container.appendChild(heart);
+            }
+        }
+
+        window.onload = createHearts;
+    </script>
+</body>
+</html>
